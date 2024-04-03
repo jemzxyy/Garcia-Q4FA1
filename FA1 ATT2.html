@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CS Q4 FA1</title>
+	<style> 
+	table {
+		border-collapse: collapse;
+	}
+	td {
+		padding: 7px;
+		background-color: lightblue;
+	}
+	
+	</style>
+</head>
+<body onload="generateMultiTable()">
+		<script>
+		function generateMultiTable(){
+			//receive input from user
+				do {
+					var n = parseInt(prompt("Please enter the number of rows in the multiplication table. "));
+					var m = parseInt(prompt("Please enter the number of columns in the multiplication table."));
+					//check if number is within 2..10 number range.
+					if (isNaN(n) || isNaN(m) || n < 2 || n > 10 || m < 2 || m > 10) {
+						alert("Error! Please enter the number within 2 to 10 range.");
+					}
+				} while (isNaN(n) || isNaN(m) || n < 2 || n > 10 || m < 2 || m > 10);
+			//generate multiplication table
+				//for loop for generating columns
+				let table = "<table border='1'>";
+				for (var y = 1; y <= m; y++){
+					table += "<tr>";
+					//for loop for generating rows
+					for (var x = 1; x <= n; x++){
+						table += "<td>" + (x * y) + "</td>";
+					}
+					//next row on table
+					table += "</tr>";
+				}
+				table += "</table>";
+				document.getElementById("multiplicationTable").innerHTML = table;
+			}
+			
+		</script>
+		<div id="multiplicationTable"></div>
+	</body>
+</html>
